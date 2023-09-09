@@ -22,7 +22,7 @@ const useSearchForm = () => {
 
     if (responseList.status === 200) {
       const responseResults = responseList.data.results || [];
-      //   console.log("responseResult", responseResults);
+      // console.log("responseResult", responseResults);
       for (const pokemon of responseResults) {
         // console.log(pokemon);
         const response = await pokemonDetailServices.getPokemonDetail(
