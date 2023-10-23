@@ -1,6 +1,8 @@
-export interface IGetPokemonList {
+import { IResponse } from "@/utils/handleResponse";
+
+export interface IGetPokemonList extends IResponse {
   status: number | undefined;
-  data: IPokemonListResponse;
+  data?: IPokemonListResponse;
 }
 
 export interface IPokemonListResponse {

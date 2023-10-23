@@ -10,14 +10,14 @@ function App() {
       element: <HomePage />,
     },
     {
-      path: "/detail",
+      path: "/detail/:name",
       element: <DetailPage />,
     },
   ]);
 
   return (
     <>
-      <div className="bg-[url('./public/images/list_bg.jpg')] min-h-[100vh]">
+      <div className="bg-[url('/public/images/list_bg.jpg')] min-h-[100vh]">
         {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
         <div className="py-5">
           <a className="text-white m-10" href="/">

@@ -1,13 +1,21 @@
 import { AxiosResponse, AxiosError } from "axios";
 
-export const handleResonspe = {
+export interface IResponse {
+  status: number | undefined;
+  error?:
+    | AxiosError<AxiosResponse<AxiosResponse<any, any>, any>>
+    | AxiosResponse<any, any>
+    | undefined;
+}
+
+export const handleResponse = {
   success: (res: AxiosResponse) => {
     return {
       status: res.status,
       data: res.data,
     };
   },
-  error: (res: AxiosError<AxiosResponse>) => {
+  error: (res: AxiosError<AxiosResponse>): IResponse => {
     if (res.message == "Network Error") {
       return {
         status: 500,
