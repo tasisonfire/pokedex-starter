@@ -9,7 +9,7 @@ import {
 } from "@/interface/pokemonDetail";
 
 type pokemonType = {
-  data: IPokemonDetailResponse;
+  data: IPokemonDetailResponse | undefined;
   loading: boolean;
   error: null | any;
 };
@@ -97,11 +97,19 @@ const detailPage = () => {
                 <div className="grid grid-rows-2 text-white">
                   <div className="flex gap-x-[10px]">
                     <div>Height</div>
-                    <div>{(pokemon.data?.height / 10).toFixed(2)} m</div>
+                    {pokemon.data ? (
+                      <div>{(pokemon.data?.height / 10).toFixed(2)} m</div>
+                    ) : (
+                      <div>no data</div>
+                    )}
                   </div>
                   <div className="flex gap-x-[10px]">
                     <div>Weight</div>
-                    <div>{(pokemon.data?.weight / 10).toFixed(2)} kg</div>
+                    {pokemon.data ? (
+                      <div>{(pokemon.data?.weight / 10).toFixed(2)} kg</div>
+                    ) : (
+                      <div>no data</div>
+                    )}
                   </div>
                 </div>
 
